@@ -16,6 +16,7 @@ class WeatherFragment : DataBindingBaseFragment<FragmentWeatherBinding>() {
     override fun onViewDataBindingCreated(binding: FragmentWeatherBinding) {
         binding.viewModel = model
         model.init()
+        model.getGetCurrentWeather("delhi")
     }
 
     override fun setBaseStates() {
