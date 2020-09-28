@@ -6,6 +6,6 @@ import retrofit2.http.*
 
 interface WeatherService {
     @Headers("Content-Type: application/json")
-    @GET("/weather")
+    @GET("weather/")
     fun getCurrentWeather(@Query("d") city: String): Observable<WeatherModelResponse>
 }

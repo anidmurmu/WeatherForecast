@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val BASE_URL = "http://api.openweathermap.org/data/2.5"
+const val BASE_URL = "http://api.openweathermap.org/data/2.5/"
 
 fun createNetworkClient(context: Context): Retrofit {
   val httpClient = OkHttpClient.Builder()
