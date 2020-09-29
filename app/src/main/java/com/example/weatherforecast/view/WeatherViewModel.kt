@@ -44,8 +44,6 @@ class WeatherViewModel(private val getCurrentWeatherUseCase: GetCurrentWeatherUs
             data = resource.data,
             error = resource.error
         )
-
-        Log.d("apple", (weatherInfo.value?.data as CurrentWeatherUiModel).temperature.toString())
     }
 
 }

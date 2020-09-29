@@ -10,8 +10,14 @@ class QueryInterceptor(private val key: String, private val value: String) : Int
 
     override fun intercept(chain: Interceptor.Chain): Response {
         var request: Request = chain.request()
-        val url: HttpUrl = request.url().newBuilder().addQueryParameter(key, value).build()
-        request = request.newBuilder().url(url).build()
+        val url: HttpUrl = request.url()
+            .newBuilder()
+            .addQueryParameter(key, value)
+            .build()
+        request = request
+            .newBuilder()
+            .url(url)
+            .build()
         return chain.proceed(request)
     }
 }

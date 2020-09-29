@@ -10,6 +10,7 @@ import com.example.domain.model.CurrentWeatherUiModel
 class WeatherViewState(status: Status, error: Throwable? = null, data: CurrentWeatherUiModel? = null) :
     BaseViewState<Any>(status, error, data){
 
-    val temperature: LiveData<String> = MutableLiveData<String>(data?.temperature.toString())
+    val temperature: LiveData<String> = MutableLiveData<String>("Temp : " + data?.temperature.toString() + " Cel")
+    val feelsLike: LiveData<String> = MutableLiveData<String>("Feels like : " + data?.feelsLike.toString() + " Cel")
 
 }
