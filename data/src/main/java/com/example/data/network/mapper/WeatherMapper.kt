@@ -7,6 +7,18 @@ import com.example.domain.model.CurrentWeatherUiModel
 class WeatherModelResponseMapper : Mapper<WeatherModelResponse, CurrentWeatherUiModel>
 {
     override fun mapFrom(type: WeatherModelResponse): CurrentWeatherUiModel {
-        return CurrentWeatherUiModel(type.main?.temperature ?: 0.0)
+        return CurrentWeatherUiModel(
+            type.coordinate?.latitude.toString(),
+                    type.coordinate?.longitude.toString(),
+            type.cityName,
+            type.sys?.country.toString(),
+            "Today",
+            type.main?.temperature.toString(),
+            type.main?.feelsLike.toString(),
+            type.main?.pressure.toString(),
+            type.main?.humidity.toString(),
+            type.wind?.speed.toString(),
+            type.visibility.toString()
+            )
     }
 }

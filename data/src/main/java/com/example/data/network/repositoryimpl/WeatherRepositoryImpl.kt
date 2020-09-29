@@ -14,7 +14,7 @@ private val currentWeatherModelResponseMapper: WeatherModelResponseMapper) : Wea
 
     override fun getCurrentWeather(city: String): Observable<Resource<CurrentWeatherUiModel>> {
         return dataSource
-            .getCurrentWeather(city, "0ce83e77954bf3338eb5bff703cf7ede")
+            .getCurrentWeather(city)
             .map { Resource.success(it.let { currentWeatherModelResponseMapper.mapFrom(it) }) }
             .onErrorReturn { Resource.error(it) }
             .subscribeOn(Schedulers.io())

@@ -2,6 +2,9 @@ package com.example.data.network.retrofit
 
 import NetworkMonitorInterceptor
 import android.content.Context
+import com.example.data.network.interceptor.QueryInterceptor
+import com.example.data.network.interceptor.appIdKey
+import com.example.data.network.interceptor.appIdValue
 import com.readystatesoftware.chuck.ChuckInterceptor
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import okhttp3.OkHttpClient
@@ -15,6 +18,7 @@ fun createNetworkClient(context: Context): Retrofit {
   val httpClient = OkHttpClient.Builder()
     .addInterceptor(ChuckInterceptor(context))
     .addInterceptor(NetworkMonitorInterceptor(context))
+    .addInterceptor(QueryInterceptor(appIdKey, appIdValue))
     .connectTimeout(25, TimeUnit.SECONDS)
     .readTimeout(25, TimeUnit.SECONDS)
     .writeTimeout(25, TimeUnit.SECONDS)
